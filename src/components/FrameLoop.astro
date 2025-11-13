@@ -1,0 +1,33 @@
+<div
+  id="ascii-container"
+  style="white-space: pre; font-family: monospace; font-size: 8px;"
+>
+  Loading...
+</div>
+
+<script type="module">
+  const container = document.getElementById("ascii-container");
+  const totalFrames = 121; // adjust to your number of frames
+  const frames = [];
+  let index = 0;
+
+  // Preload frames
+  async function loadFrames() {
+    for (let i = 0; i < totalFrames; i++) {
+      const frameNumber = String(i).padStart(3, "0");
+      const res = await fetch(`/ascii_frames/frame_${frameNumber}.txt`);
+      const text = await res.text();
+      frames.push(text);
+    }
+    startLoop();
+  }
+
+  function startLoop() {
+    setInterval(() => {
+      container.textContent = frames[index];
+      index = (index + 1) % frames.length;
+    }, 80); // adjust FPS
+  }
+
+  loadFrames();
+</script>
