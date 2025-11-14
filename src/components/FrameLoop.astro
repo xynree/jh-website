@@ -1,7 +1,4 @@
-<div
-  id="ascii-container"
-  style="white-space: pre; font-family: monospace; font-size: 8px;"
->
+<div id="ascii-container" style="white-space: pre; font-family: monospace;">
   Loading...
 </div>
 
@@ -26,8 +23,14 @@
     setInterval(() => {
       container.textContent = frames[index];
       index = (index + 1) % frames.length;
-    }, 80); // adjust FPS
+    }, 100); // adjust FPS
   }
 
   loadFrames();
 </script>
+
+<style>
+  #ascii-container {
+    font-size: 6px;
+  }
+</style>
