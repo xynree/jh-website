@@ -1,12 +1,16 @@
-<div id="ascii-container" style="white-space: pre; font-family: monospace;">
-  Loading...
-</div>
+<div id="ascii-container" style="font-family: monospace;"></div>
 
 <script type="module">
   const container = document.getElementById("ascii-container");
   const totalFrames = 121; // adjust to your number of frames
   const frames = [];
   let index = 0;
+
+  // Fill with loading marks
+  const totalMarks = 10000;
+  const marksPerLine = 180; // Adjust based on your container width
+  const loadingText = createLoadingPattern(totalMarks, marksPerLine);
+  container.textContent = loadingText;
 
   // Preload frames
   async function loadFrames() {
@@ -17,6 +21,22 @@
       frames.push(text);
     }
     startLoop();
+  }
+
+  function createLoadingPattern(totalMarks, marksPerLine, markChar = ".") {
+    const totalLines = Math.ceil(totalMarks / marksPerLine);
+    const lines = [];
+
+    for (let lineIndex = 0; lineIndex < totalLines; lineIndex++) {
+      const marksInThisLine = Math.min(
+        marksPerLine,
+        totalMarks - lineIndex * marksPerLine
+      );
+      const line = markChar.repeat(marksInThisLine);
+      lines.push(line);
+    }
+
+    return lines.slice(0, -1).join("\n");
   }
 
   function startLoop() {
@@ -32,5 +52,7 @@
 <style>
   #ascii-container {
     font-size: 6px;
+    height: 385px;
+    white-space: pre;
   }
 </style>

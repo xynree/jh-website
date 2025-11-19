@@ -1,0 +1,90 @@
+<h3>shows</h3>
+
+<ul class="list">
+  <li>
+    <span>bad bar</span>
+    <span class="fill"></span>
+    <span>dec 11</span>
+  </li>
+  <li>
+    <span>the mountain room</span>
+    <span class="fill"></span>
+    <span>dec 18</span>
+  </li>
+  <li>
+    <span>central saloon</span>
+    <span class="fill"></span>
+    <span>jan 7</span>
+  </li>
+</ul>
+
+<script type="module">
+  const fillAreas = document.querySelectorAll(".fill");
+
+  function fillAreasWithChars(fillChar = ".") {
+    const listItems = document.querySelectorAll(".list li");
+
+    listItems.forEach((item) => {
+      const fillDiv = item.querySelector(".fill");
+      if (!fillDiv) return;
+
+      // Get all text nodes and elements in the list item
+      const childNodes = Array.from(item.childNodes);
+
+      // Find the fill div's position
+      const fillIndex = childNodes.indexOf(fillDiv);
+
+      // Get text before fill div
+      const textBefore = childNodes
+        .slice(0, fillIndex)
+        .map((node) => node.textContent || "")
+        .join("")
+        .trim();
+
+      // Get text after fill div
+      const textAfter = childNodes
+        .slice(fillIndex + 1)
+        .map((node) => node.textContent || "")
+        .join("")
+        .trim();
+
+      // Calculate approximate character count needed
+      // Assuming monospace font, we can estimate based on text length
+      // You may need to adjust the multiplier based on your font size and container width
+      const containerWidth = 650; // from main container max-width
+      const charWidth = 8.6; // approximate monospace character width in pixels at font-size 14px
+
+      const textBeforeWidth = textBefore.length * charWidth;
+      const textAfterWidth = textAfter.length * charWidth;
+
+      const remainingWidth = containerWidth - textBeforeWidth - textAfterWidth;
+      const charsNeeded = Math.max(0, Math.floor(remainingWidth / charWidth));
+
+      // Fill the div with characters
+      fillDiv.textContent = fillChar.repeat(charsNeeded);
+    });
+  }
+
+  // Call the function when the DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fillAreasWithChars);
+  } else {
+    fillAreasWithChars();
+  }
+</script>
+
+<style>
+  .list {
+    font-family: monospace;
+    list-style-type: none;
+  }
+
+  ul {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+</style>
