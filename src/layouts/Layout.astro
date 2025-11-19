@@ -1,3 +1,7 @@
+---
+import "../layouts/global.css";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +12,9 @@
     <title>John Honda</title>
   </head>
   <body id="container">
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
@@ -21,13 +27,9 @@
   }
 
   #container {
-    font-family: "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+    font-family: "Inter", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
       sans-serif;
     height: 100%;
-  }
-
-  main {
-    height: 100%;
-    max-width: 1200px;
+    background-color: rgb(242, 242, 242);
   }
 </style>
