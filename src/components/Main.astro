@@ -1,44 +1,11 @@
 ---
+import Header from "./Header.astro";
 import FrameLoop from "./FrameLoop.astro";
 import BandcampEmbed from "./BandcampEmbed.astro";
 import Upcoming from "./Upcoming.astro";
 ---
 
-<div id="container">
-  <main>
-    <h2>johnhonda.com</h2>
-    <FrameLoop />
-    <BandcampEmbed />
-    <Upcoming />
-  </main>
-</div>
-
-<style>
-  #container {
-    font-family: "Inter", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
-      sans-serif;
-    height: 100%;
-    background-color: rgb(242, 242, 242);
-  }
-
-  main {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 650px;
-    padding-top: 36px;
-    gap: 0.5rem;
-    margin: auto;
-    font-size: 14px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  h3 {
-    font-size: 20px;
-    font-weight: 200;
-  }
-</style>
+<Header />
+<FrameLoop />
+<BandcampEmbed />
+<Upcoming />

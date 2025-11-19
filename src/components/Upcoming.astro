@@ -48,7 +48,7 @@ import upcomingShows from "../content/upcoming.json";
       // Assuming monospace font, we can estimate based on text length
       // You may need to adjust the multiplier based on your font size and container width
       const containerWidth = 650; // from main container max-width
-      const charWidth = 8.6; // approximate monospace character width in pixels at font-size 14px
+      const charWidth = 8; // approximate monospace character width in pixels at font-size 14px
 
       const textBeforeWidth = textBefore.length * charWidth;
       const textAfterWidth = textAfter.length * charWidth;
@@ -73,6 +73,7 @@ import upcomingShows from "../content/upcoming.json";
   .list {
     font-family: monospace;
     list-style-type: none;
+    font-size: 13px;
   }
 
   ul {
