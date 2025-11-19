@@ -1,11 +1,15 @@
 ---
 import FrameLoop from "./FrameLoop.astro";
+import BandcampEmbed from "./BandcampEmbed.astro";
+import Upcoming from "./Upcoming.astro";
 ---
 
 <div id="container">
   <main>
+    <h2>johnhonda.com</h2>
     <FrameLoop />
-    <h2>john honda</h2>
+    <BandcampEmbed />
+    <Upcoming />
   </main>
 </div>
 
@@ -14,15 +18,27 @@ import FrameLoop from "./FrameLoop.astro";
     font-family: "Inter", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
       sans-serif;
     height: 100%;
+    background-color: rgb(242, 242, 242);
   }
 
   main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 650px;
+    padding-top: 36px;
+    gap: 0.5rem;
     margin: auto;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 200;
   }
 </style>
