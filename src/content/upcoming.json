@@ -1,0 +1,17 @@
+[
+  {
+    "venue": "bad bar",
+    "location": "seattle, wa",
+    "date": "dec 11"
+  },
+  {
+    "venue": "the mountain room",
+    "location": "seattle, wa",
+    "date": "dec 18"
+  },
+  {
+    "venue": "central saloon",
+    "location": "seattle, wa",
+    "date": "jan 7"
+  }
+]
