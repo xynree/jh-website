@@ -1,26 +1,22 @@
+---
+import upcomingShows from "../content/upcoming.json";
+---
+
 <h3>shows</h3>
 
 <ul class="list">
-  <li>
-    <span>bad bar</span>
-    <span class="fill"></span>
-    <span>dec 11</span>
-  </li>
-  <li>
-    <span>the mountain room</span>
-    <span class="fill"></span>
-    <span>dec 18</span>
-  </li>
-  <li>
-    <span>central saloon</span>
-    <span class="fill"></span>
-    <span>jan 7</span>
-  </li>
+  {
+    upcomingShows.map((show) => (
+      <li>
+        <span>{show.venue}</span>
+        <span class="fill" />
+        <span>{show.date}</span>
+      </li>
+    ))
+  }
 </ul>
 
 <script type="module">
-  const fillAreas = document.querySelectorAll(".fill");
-
   function fillAreasWithChars(fillChar = ".") {
     const listItems = document.querySelectorAll(".list li");
 
@@ -85,6 +81,6 @@
   }
 
   li:not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 </style>
