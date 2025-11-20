@@ -14,10 +14,16 @@ main {
   align-items: center;
   max-width: 650px;
   width: 100%;
-  padding-top: 36px;
+  padding: 36px 0;
   gap: 0.5rem;
   margin: auto;
   font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 12px 0;
+  }
 }
 
 p,h2,h3 {
