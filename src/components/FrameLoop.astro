@@ -16,7 +16,7 @@
   async function loadFrames() {
     for (let i = 0; i < totalFrames; i++) {
       const frameNumber = String(i).padStart(3, "0");
-      const res = await fetch(`/ascii_frames/frame_${frameNumber}.txt`);
+      const res = await fetch(`./ascii_frames/frame_${frameNumber}.txt`);
       const text = await res.text();
       frames.push(text);
     }
