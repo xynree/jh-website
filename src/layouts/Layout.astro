@@ -1,38 +1,43 @@
----
-import "../layouts/global.css";
----
-
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width"/>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-    <meta name="generator" content={Astro.generator}/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="./global.css" />
+    <meta name="generator" content={Astro.generator} />
 
     <title>John Honda</title>
-    <meta name="description" content="Garage punk from Seattle, WA. Unaffiliated with the automotive company.">
+    <meta
+      name="description"
+      content="Garage punk from Seattle, WA. Unaffiliated with the automotive company."
+    />
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://johnhonda.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="John Honda">
-    <meta property="og:description" content="Garage punk from Seattle, WA. Unaffiliated with the automotive company.">
-    <meta property="og:image" content="./jh-logo-light-expanded.jpeg">
+    <meta property="og:url" content="https://johnhonda.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="John Honda" />
+    <meta
+      property="og:description"
+      content="Garage punk from Seattle, WA. Unaffiliated with the automotive company."
+    />
+    <meta property="og:image" content="./favicon/jh-logo-light-expanded.jpeg" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="johnhonda.com">
-    <meta property="twitter:url" content="https://johnhonda.com/">
-    <meta name="twitter:title" content="John Honda">
-    <meta name="twitter:description" content="Garage punk from Seattle, WA. Unaffiliated with the automotive company.">
-    <meta name="twitter:image" content="./jh-logo-light-expanded.jpeg">
-
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="johnhonda.com" />
+    <meta property="twitter:url" content="https://johnhonda.com/" />
+    <meta name="twitter:title" content="John Honda" />
+    <meta
+      name="twitter:description"
+      content="Garage punk from Seattle, WA. Unaffiliated with the automotive company."
+    />
+    <meta name="twitter:image" content="./jh-logo-light-expanded.jpeg" />
   </head>
 
   <body id="container">
     <main>
-      <slot/>
+      <slot />
     </main>
   </body>
 </html>
