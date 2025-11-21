@@ -1,9 +1,4 @@
-<iframe
-  class="embed"
-  src="https://bandcamp.com/EmbeddedPlayer/album=701373380/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/"
-  seamless
->
-</iframe>
+<iframe id="bandcamp-iframe" class="embed" seamless> </iframe>
 
 <style>
   .embed {
@@ -16,7 +11,34 @@
 
   @media (max-width: 480px) {
     .embed {
-      height: 200px;
+      padding-top: 0;
+      height: 120px;
     }
   }
 </style>
+
+<script>
+  function updateIframeSrc() {
+    const iframe = document.getElementById(
+      "bandcamp-iframe"
+    ) as HTMLIFrameElement;
+    const isMobile = window.matchMedia("(max-width: 480px)").matches;
+
+    // Base URL without tracklist parameter
+    const baseUrl =
+      "https://bandcamp.com/EmbeddedPlayer/album=701373380/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/";
+
+    // Add tracklist parameter based on screen size
+    const tracklistParam = isMobile ? "tracklist=false/" : "tracklist=true/";
+    const fullUrl = baseUrl + tracklistParam;
+
+    iframe.src = fullUrl;
+  }
+
+  // Update on initial load
+  updateIframeSrc();
+
+  // Listen for screen size changes
+  const mediaQuery = window.matchMedia("(max-width: 480px)");
+  mediaQuery.addEventListener("change", updateIframeSrc);
+</script>
