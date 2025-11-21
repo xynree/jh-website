@@ -1,6 +1,7 @@
 import os
 import cv2
 from PIL import Image
+import json  # Add this import for JSON functionality
 
 # ================= CONFIG =================
 VIDEO_PATH = "input.mov"         # your video file
@@ -58,3 +59,17 @@ while True:
 
 cap.release()
 print(f"Saved {saved_idx} ASCII frames to '{OUTPUT_FOLDER}'")
+
+# Compile all frames into a single JSON file
+frames = []
+for i in range(saved_idx):
+    frame_path = os.path.join(OUTPUT_FOLDER, f"frame_{i:03d}.txt")
+    with open(frame_path, "r") as f:
+        frames.append(f.read())
+
+# Save as JSON array
+json_path = "ascii_compiled.json"
+with open(json_path, "w") as f:
+    json.dump(frames, f)
+
+print(f"Compiled {len(frames)} frames into '{json_path}'")

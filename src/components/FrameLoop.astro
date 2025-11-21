@@ -2,7 +2,6 @@
 
 <script type="module">
   const container = document.getElementById("ascii-container");
-  const totalFrames = 121; // adjust to your number of frames
   const frames = [];
   let index = 0;
 
@@ -12,15 +11,16 @@
   const loadingText = createLoadingPattern(totalMarks, marksPerLine);
   container.textContent = loadingText;
 
-  // Preload frames
+  // Load frames from JSON file
   async function loadFrames() {
-    for (let i = 0; i < totalFrames; i++) {
-      const frameNumber = String(i).padStart(3, "0");
-      const res = await fetch(`./ascii_frames/frame_${frameNumber}.txt`);
-      const text = await res.text();
-      frames.push(text);
+    try {
+      const res = await fetch("./ascii_compiled.json");
+      const frameArray = await res.json();
+      frames.push(...frameArray);
+      startLoop();
+    } catch (error) {
+      console.error("Error loading ASCII frames:", error);
     }
-    startLoop();
   }
 
   function createLoadingPattern(totalMarks, marksPerLine, markChar = ".") {

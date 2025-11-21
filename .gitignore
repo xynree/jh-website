@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# movie file and raw ascii frames
+*.mov
+ascii_frames/
