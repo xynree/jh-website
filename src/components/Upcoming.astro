@@ -8,7 +8,7 @@ import upcomingShows from "../content/upcoming.json";
   {
     upcomingShows.map((show) => (
       <li>
-        <span>{show.venue}</span>
+        <span>{show.url == "" ? show.venue: <a href={show.url}>{show.venue}</a>}</span>
         <span class="fill" />
         <span>{show.date}</span>
       </li>
@@ -51,7 +51,6 @@ import upcomingShows from "../content/upcoming.json";
         item.closest(".list") ||
         document.querySelector("main");
 
-      console.log(container.offsetWidth);
       const containerWidth = container ? container.offsetWidth - 24 : 650; // fallback to 650px if container not found
       const charWidth = 8; // approximate monospace character width in pixels at font-size 14px
 
@@ -117,5 +116,14 @@ import upcomingShows from "../content/upcoming.json";
     h3 {
       margin: 0.25rem 0;
     }
+  }
+
+  a {
+      text-decoration: unset;
+      color: unset;
+  }
+
+  a:hover {
+      color: gray;
   }
 </style>
