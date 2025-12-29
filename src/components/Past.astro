@@ -1,0 +1,85 @@
+---
+import pastShows from "../content/past.json";
+---
+
+<h3>past</h3>
+
+<ul id="past-list" class="list is-collapsed">
+  {
+    pastShows.map((show) => (
+      <li class="show">
+        <span>{show.venue}</span>
+        <span class="fill" />
+        <span>{show.date}</span>
+      </li>
+    ))
+  }
+</ul>
+
+
+<script>
+  const list = document.getElementById("past-list");
+
+  if (list) {
+    list.addEventListener("click", () => {
+      list.classList.toggle("is-collapsed");
+    })
+  }
+
+</script>
+
+<style>
+  .list {
+    font-family: monospace;
+    list-style-type: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  .list.is-collapsed .show:nth-child(n + 5) {
+    display: none;
+  }
+
+  .list.is-collapsed .show:nth-child(1) { opacity: 1; }
+  .list.is-collapsed .show:nth-child(2) { opacity: 0.7; }
+  .list.is-collapsed .show:nth-child(3) { opacity: 0.4; }
+  .list.is-collapsed .show:nth-child(4) { opacity: 0.1; }
+
+  .list:not(.is-collapsed) .show {
+    opacity: 1;
+    display: block;
+  }
+
+  .list.is-collapsed:hover {
+    color: grey;
+  }
+
+  h3 {
+    margin: 1rem 0 0.25rem;
+  }
+
+  ul {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 480px) {
+    h3 {
+      margin: 0.25rem 0;
+    }
+  }
+
+  a {
+    text-decoration: unset;
+    color: unset;
+  }
+
+  a:hover {
+    color: gray;
+  }
+</style>
