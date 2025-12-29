@@ -1,25 +1,33 @@
-<!-- <h2>johnhonda.com</h2> -->
-<img src="./jh-logo-horizontal.png" />
-<!-- <p>garage punk outta seattle, wa</p> -->
+<a href="/" class="header-link">
+<img src="./jh-logo-horizontal.png" alt="John Honda logo" />
+</a>
 
 <style>
   p {
     text-align: center;
   }
 
-  img {
+  .header-link {
+    display: inline-block;
+    text-decoration: none;
     margin: 1.5rem 0 1.875rem -1rem;
     width: 60%;
   }
 
+  .header-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   @media (max-width: 680px) {
-    img {
+    .header-link {
       width: 70%;
     }
   }
 
   @media (max-width: 480px) {
-    img {
+    .header-link {
       margin: 0.5rem 0;
       width: 85%;
     }

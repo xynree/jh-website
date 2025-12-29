@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/photos/*.{jpeg,jpg,png,gif}",
+  { eager: true },
+);
+function getAttribution(path: string) {
+  const fileName = path.split("/").pop() || "";
+  const parts = fileName.split("_by_");
+
+  if (parts.length > 1) {
+    return `Photo by ${parts[1].split(".")[0].replace(/_/g, " ")}`;
+  }
+  return "Press Photo";
+}
+---
+
+<div class="photo-grid">
+  {
+    Object.entries(images).map(([path, image]) => (
+      <figure class="photo-card">
+        <Image src={image.default} alt={getAttribution(path)} width={800} />
+        <figcaption>{getAttribution(path)}</figcaption>
+      </figure>
+    ))
+  }
+</div>
+
+<style>
+  .photo-grid {
+    margin: 0rem 1rem;
+  }
+
+  .photo-card {
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+  }
+</style>
