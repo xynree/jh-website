@@ -51,7 +51,14 @@ function formatShowDate(dateStr: string, displayYear = false) {
           {show.url == "" ? show.venue : <a href={show.url}>{show.venue}</a>}
         </span>
         <span class="fill" />
-        <span>{formatShowDate(show.date)}</span>
+
+        <span>
+          {show.url == "" ? (
+            formatShowDate(show.date)
+          ) : (
+            <a href={show.url}>{formatShowDate(show.date)}</a>
+          )}
+        </span>
       </li>
     ))
   }
@@ -63,9 +70,17 @@ function formatShowDate(dateStr: string, displayYear = false) {
   {
     pastShows.map((show) => (
       <li>
-        <span>{show.venue}</span>
+        <span>
+          {show.url == "" ? show.venue : <a href={show.url}>{show.venue}</a>}
+        </span>
         <span class="fill" />
-        <span>{formatShowDate(show.date, true)}</span>
+        <span>
+          {show.url == "" ? (
+            formatShowDate(show.date, true)
+          ) : (
+            <a href={show.url}>{formatShowDate(show.date, true)}</a>
+          )}
+        </span>{" "}
       </li>
     ))
   }
@@ -154,10 +169,6 @@ function formatShowDate(dateStr: string, displayYear = false) {
     font-size: 13px;
   }
 
-  #past-list {
-    color: rgb(140, 140, 140);
-  }
-
   h3 {
     margin: 1rem 0 0.25rem;
   }
@@ -184,5 +195,9 @@ function formatShowDate(dateStr: string, displayYear = false) {
 
   a:hover {
     color: gray;
+  }
+
+  #past-list {
+    color: rgb(112, 112, 112);
   }
 </style>
