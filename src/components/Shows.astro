@@ -1,20 +1,76 @@
 ---
-import upcomingShows from "../content/upcoming.json";
+import shows from "../content/shows.json";
+
+let pastShows = shows
+  .sort(
+    (prev, curr) =>
+      new Date(curr.date).getTime() - new Date(prev.date).getTime()
+  )
+  .filter((s) => new Date(s.date).getTime() < Date.now());
+
+let upcomingShows = shows
+  .sort(
+    (prev, curr) =>
+      new Date(prev.date).getTime() - new Date(curr.date).getTime()
+  )
+  .filter((s) => new Date(s.date).getTime() > Date.now());
+
+function formatShowDate(dateStr: string, displayYear = false) {
+  const date = new Date(dateStr);
+  const monthNames = [
+    "jan",
+    "feb",
+    "mar",
+    "apr",
+    "may",
+    "jun",
+    "jul",
+    "aug",
+    "sep",
+    "oct",
+    "nov",
+    "dec",
+  ];
+
+  const month = monthNames[date.getMonth()];
+  const day = date.getDate();
+
+  return displayYear
+    ? `${month} ${day} ${date.getFullYear()}`
+    : `${month} ${day}`;
+}
 ---
 
 <h3>shows</h3>
 
-<ul class="list">
+<ul class="upcoming-list list">
   {
     upcomingShows.map((show) => (
       <li>
-        <span>{show.url == "" ? show.venue: <a href={show.url}>{show.venue}</a>}</span>
+        <span>
+          {show.url == "" ? show.venue : <a href={show.url}>{show.venue}</a>}
+        </span>
         <span class="fill" />
-        <span>{show.date}</span>
+        <span>{formatShowDate(show.date)}</span>
       </li>
     ))
   }
 </ul>
+
+<h3>past</h3>
+
+<ul id="past-list" class="list past">
+  {
+    pastShows.map((show) => (
+      <li>
+        <span>{show.venue}</span>
+        <span class="fill" />
+        <span>{formatShowDate(show.date, true)}</span>
+      </li>
+    ))
+  }
+</ul>
+
 <script type="module">
   function fillAreasWithChars(fillChar = ".") {
     const listItems = document.querySelectorAll(".list li");
@@ -45,7 +101,6 @@ import upcomingShows from "../content/upcoming.json";
 
       // Calculate approximate character count needed
       // Assuming monospace font, we can estimate based on text length
-      // You may need to adjust the multiplier based on your font size and container width
       const container =
         item.closest("main") ||
         item.closest(".list") ||
@@ -99,6 +154,10 @@ import upcomingShows from "../content/upcoming.json";
     font-size: 13px;
   }
 
+  #past-list {
+    color: rgb(140, 140, 140);
+  }
+
   h3 {
     margin: 1rem 0 0.25rem;
   }
@@ -119,11 +178,11 @@ import upcomingShows from "../content/upcoming.json";
   }
 
   a {
-      text-decoration: unset;
-      color: unset;
+    text-decoration: unset;
+    color: unset;
   }
 
   a:hover {
-      color: gray;
+    color: gray;
   }
 </style>
