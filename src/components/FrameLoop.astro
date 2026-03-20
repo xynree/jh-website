@@ -30,7 +30,7 @@
     for (let lineIndex = 0; lineIndex < totalLines; lineIndex++) {
       const marksInThisLine = Math.min(
         marksPerLine,
-        totalMarks - lineIndex * marksPerLine
+        totalMarks - lineIndex * marksPerLine,
       );
       const line = markChar.repeat(marksInThisLine);
       lines.push(line);
@@ -43,7 +43,7 @@
     setInterval(() => {
       container.textContent = frames[index];
       index = (index + 1) % frames.length;
-    }, 100); // adjust FPS
+    }, 180); // adjust FPS
   }
 
   loadFrames();
@@ -51,9 +51,10 @@
 
 <style>
   #ascii-container {
-    font-size: 6px;
-    height: 377px;
+    font-size: 9px;
+    height: 500px;
     white-space: pre;
+    overflow-y: hidden;
   }
 
   @media (max-width: 480px) {
@@ -63,5 +64,4 @@
       white-space: pre;
     }
   }
-
 </style>
