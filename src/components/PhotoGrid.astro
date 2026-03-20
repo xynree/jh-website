@@ -5,6 +5,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/photos/*.{jpeg,jpg,png,gif}",
   { eager: true },
 );
+
+const sortedImages = Object.entries(images).sort(([pathA], [pathB]) => {
+  return pathA.localeCompare(pathB); // Ascending: Oldest to Newest
+});
+
+sortedImages.reverse();
+
 function getAttribution(path: string) {
   const fileName = path.split("/").pop() || "";
   const parts = fileName.split("_by_");
@@ -18,7 +25,7 @@ function getAttribution(path: string) {
 
 <div class="photo-grid">
   {
-    Object.entries(images).map(([path, image]) => (
+    sortedImages.map(([path, image]) => (
       <figure class="photo-card">
         <Image src={image.default} alt={getAttribution(path)} width={800} />
         <figcaption>{getAttribution(path)}</figcaption>
