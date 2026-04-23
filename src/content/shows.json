@@ -1,5 +1,17 @@
 [
   {
+    "venue": "blue moon tavern",
+    "url": "",
+    "location": "seattle, wa",
+    "date": "05/30/2026"
+  },
+  {
+    "venue": "belltown yacht club",
+    "url": "",
+    "location": "seattle, wa",
+    "date": "05/19/2026"
+  },
+  {
     "venue": "central saloon",
     "url": "",
     "location": "seattle, wa",
@@ -8,13 +20,13 @@
   {
     "venue": "belltown yacht club",
     "url": "https://dice.fm/event/avpqd2-pleasure-pill-native-sun-john-honda-12th-apr-belltown-yacht-club-seattle-tickets",
-    "location": "seatte, wa",
+    "location": "seattle, wa",
     "date": "04/12/2026"
   },
   {
     "venue": "skylark cafe",
     "url": "",
-    "location": "west seatte, wa",
+    "location": "west seattle, wa",
     "date": "04/10/2026"
   },
   {
