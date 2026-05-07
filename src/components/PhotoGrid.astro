@@ -6,7 +6,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 
-const sortedImages = Object.entries(images).sort(([pathA], [pathB]) => {
+const { imageAmt } = Astro.props;
+
+let sortedImages = Object.entries(images).sort(([pathA], [pathB]) => {
   return pathA.localeCompare(pathB); // Ascending: Oldest to Newest
 });
 
@@ -21,13 +23,17 @@ function getAttribution(path: string) {
   }
   return "Press Photo";
 }
+
+if (imageAmt > 0) {
+  sortedImages = sortedImages.slice(0, imageAmt);
+}
 ---
 
 <div class="photo-grid">
   {
     sortedImages.map(([path, image]) => (
       <figure class="photo-card">
-        <Image src={image.default} alt={getAttribution(path)} width={800} />
+        <Image src={image.default} alt={getAttribution(path)} height={400} />
         <figcaption>{getAttribution(path)}</figcaption>
       </figure>
     ))
@@ -37,6 +43,9 @@ function getAttribution(path: string) {
 <style>
   .photo-grid {
     margin: 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .photo-card {
@@ -46,8 +55,8 @@ function getAttribution(path: string) {
   }
 
   .photo-card img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     border-radius: 4px;
     display: block;
   }
