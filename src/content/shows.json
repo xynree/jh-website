@@ -1,5 +1,23 @@
 [
   {
+    "venue": "zap house",
+    "url": "",
+    "location": "idaho falls, id",
+    "date": "06/28/2026"
+  },
+  {
+    "venue": "rollin records",
+    "url": "",
+    "location": "boise, id",
+    "date": "06/26/2026"
+  },
+  {
+    "venue": "conor byrne",
+    "url": "https://tickets.venuepilot.com/e/katzenvater-farreaches-john-honda-2026-06-25-conor-byrne-cooperative-seattle-8ca53a",
+    "location": "seattle, wa",
+    "date": "06/25/2026"
+  },
+  {
     "venue": "blue moon tavern",
     "url": "",
     "location": "seattle, wa",
