@@ -1,5 +1,23 @@
 [
   {
+    "venue": "julia louis dreyfest",
+    "url": "",
+    "location": "billings, mt",
+    "date": "08/09/2026"
+  },
+  {
+    "venue": "belltown blast",
+    "url": "",
+    "location": "seattle, wa",
+    "date": "08/15/2026"
+  },
+  {
+    "venue": "sweat lodge",
+    "url": "",
+    "location": "tacoma, wa",
+    "date": "08/22/2026"
+  },
+  {
     "venue": "baba yaga",
     "url":"",
     "location": "seattle, wa",
