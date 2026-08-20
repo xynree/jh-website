@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import johnHondaLogo from "../assets/jh-logo-horizontal.png";
+// import johnHondaLogo from "../assets/jh-logo-horizontal.png";
+import johnHondaLogo from "../assets/JOHN HONDA 03.png";
 ---
 
 <a href="/" class="header-link">
-  <Image src={johnHondaLogo} alt="John Honda logo" />
+  <Image src={johnHondaLogo} width={1000} alt="John Honda logo" />
 </a>
 
 <style>
@@ -16,7 +17,7 @@ import johnHondaLogo from "../assets/jh-logo-horizontal.png";
     display: inline-block;
     text-decoration: none;
     margin: 1.5rem 0 1.875rem -1rem;
-    width: 60%;
+    width: 80%;
   }
 
   .header-link img {
