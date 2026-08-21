@@ -7,9 +7,9 @@ from PIL import Image
 # ================= CONFIG =================
 VIDEO_PATH = "input.mov"  # your video file
 OUTPUT_FOLDER = "ascii_frames"  # where ASCII frames will be saved
-NUM_FRAMES = 400  # target number of frames
+NUM_FRAMES = 1000  # target number of frames
 NEW_WIDTH = 120  # width of ASCII art
-ASCII_CHARS = "▓▒░|johnda "  # dark -> light
+ASCII_CHARS = "▓▒░$|johnda "  # dark -> light
 # =========================================
 
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
